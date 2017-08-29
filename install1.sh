@@ -9,5 +9,5 @@ which cpp
 gcc --version
 gfortran --version
 cd ..
-sudo mkdir Build_WRF
-sudo mkdir TESTS
+mkdir Build_WRF
+mkdir TESTS
