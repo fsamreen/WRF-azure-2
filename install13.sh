@@ -14,3 +14,13 @@ gfortran 01_fortran+c+netcdf_f.o 01_fortran+c+netcdf_c.o -L${NETCDF}/lib -lnetcd
 #C function called by Fortran
 #Values are xx = 2.00 and ii = 1
 #SUCCESS test 1 fortran + c + netcdf
+#Test #2: Fortran + C + NetCDF + MPI
+cp ${NETCDF}/include/netcdf.inc .
+mpif90 -c 02_fortran+c+netcdf+mpi_f.f
+mpicc -c 02_fortran+c+netcdf+mpi_c.c
+mpif90 02_fortran+c+netcdf+mpi_f.o 02_fortran+c+netcdf+mpi_c.o -L${NETCDF}/lib -lnetcdff -lnetcdf
+mpirun ./a.out
+#C function called by Fortran
+#Values are xx = 2.00 and ii = 1
+#status = 2
+#SUCCESS test 2 fortran + c + netcdf + mpi
