@@ -8,3 +8,4 @@ tar -xf WRFV3.9.1.1.TAR
 cd WRFV3
 ./configure
 
+http://www2.mmm.ucar.edu/wrf/src/WPSV3.8.1.TAR.gz
