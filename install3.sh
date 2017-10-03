@@ -23,5 +23,5 @@ wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/libp
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/zlib-1.2.7.tar.gz
 sudo apt-get install tcsh -y
 cd ~/WRF-azure
-echo "Calling script4....."
+echo "Calling script5....."
 sh ./install5.sh
