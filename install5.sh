@@ -7,3 +7,6 @@ sudo apt-get install make -y
 make
 make install
 cd ..
+cd ~/WRF-azure
+echo "Calling script5....."
+sh ./install6.sh
