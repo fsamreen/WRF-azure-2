@@ -24,4 +24,4 @@ wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/zlib
 sudo apt-get install tcsh -y
 cd ~/WRF-azure
 echo "Calling script4....."
-sh ./install4.sh
+#sh ./install4.sh
