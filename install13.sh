@@ -10,7 +10,7 @@ cp ${NETCDF}/include/netcdf.inc .
 gfortran -c 01_fortran+c+netcdf_f.f
 gcc -c 01_fortran+c+netcdf_c.c
 gfortran 01_fortran+c+netcdf_f.o 01_fortran+c+netcdf_c.o -L${NETCDF}/lib -lnetcdff -lnetcdf
-./a.out
+./a.out | tee -a ~/wrflog.txt
 #The following should be displayed on your screen:
 #C function called by Fortran
 #Values are xx = 2.00 and ii = 1
@@ -20,7 +20,7 @@ cp ${NETCDF}/include/netcdf.inc .
 mpif90 -c 02_fortran+c+netcdf+mpi_f.f
 mpicc -c 02_fortran+c+netcdf+mpi_c.c
 mpif90 02_fortran+c+netcdf+mpi_f.o 02_fortran+c+netcdf+mpi_c.o -L${NETCDF}/lib -lnetcdff -lnetcdf
-mpirun ./a.out
+mpirun ./a.out | tee -a ~/wrflog.txt
 #C function called by Fortran
 #Values are xx = 2.00 and ii = 1
 #status = 2
