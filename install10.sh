@@ -6,3 +6,6 @@ cd zlib-1.2.7
 make
 make install
 cd ..
+cd ~/WRF-azure
+echo "Calling script11....."
+sh ./install11.sh
