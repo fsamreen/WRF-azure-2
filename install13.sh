@@ -27,6 +27,6 @@ mpirun ./a.out | tee -a ~/wrflog.txt
 #SUCCESS test 2 fortran + c + netcdf + mpi
 #read -p " Do you want to install WRF, press y for yes: " n1
 #if (n1==y
-#cd ~/WRF-azure
-#echo "Calling script14....."
-#sh ./install14.sh
+cd ~/WRF-azure
+echo "Calling script14....."
+sh ./install14.sh
