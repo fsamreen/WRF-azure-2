@@ -34,7 +34,7 @@ echo "Configuring libpng........"
 cd /home/Build_WRF/LIBRARIES
 tar xzvf libpng-1.2.50.tar.gz     #or just .tar if no .gz present
 cd libpng-1.2.50
-./configure --prefix=/home/Build_WRF/grib2
+./configure --prefix=/home/Build_WRF/LIBRARIES/grib2
 make
 make install
 echo " Configure jasper....."
