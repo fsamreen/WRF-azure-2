@@ -16,6 +16,7 @@ cd netcdf-4.1.3
 apt-get install make -y
 make
 make install
+sleep 10
 echo "Configuring mpich........"
 cd /home/Build_WRF/LIBRARIES
 tar xzvf mpich-3.0.4.tar.gz
@@ -23,6 +24,7 @@ cd mpich-3.0.4
 ./configure --prefix=/home/Build_WRF/LIBRARIES/mpich
 make
 make install
+sleep 10
 echo "Configuring Zlib........"
 cd /home/Build_WRF/LIBRARIES
 tar xzvf zlib-1.2.7.tar.gz     #or just .tar if no .gz present
@@ -30,6 +32,7 @@ cd zlib-1.2.7
 ./configure --prefix=/home/Build_WRF/LIBRARIES/grib2
 make
 make install
+sleep 10
 echo "Configuring libpng........"
 cd /home/Build_WRF/LIBRARIES
 tar xzvf libpng-1.2.50.tar.gz     #or just .tar if no .gz present
@@ -37,6 +40,7 @@ cd libpng-1.2.50
 ./configure --prefix=/home/Build_WRF/LIBRARIES/grib2
 make
 make install
+sleep 10
 echo " Configure jasper....."
 cd /home/Build_WRF/LIBRARIES
 tar xzvf jasper-1.900.1.tar.gz     #or just .tar if no .gz present
@@ -44,3 +48,4 @@ cd jasper-1.900.1
 ./configure --prefix=/home/Build_WRF/LIBRARIES/grib2
 make
 make install
+sleep 10
