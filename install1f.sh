@@ -183,4 +183,4 @@ tar -xvf WPSV3.9.TAR
 #./configure
 cd ~/Build_WRF
 cd WRFV3
-./configure
+#./configure
