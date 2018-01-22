@@ -184,3 +184,4 @@ tar -xvf WPSV3.9.TAR
 cd ~/Build_WRF
 cd WRFV3
 #./configure
+echo " WRF is installed ........ Configure it using following command $cd ~/Build_WRF $ ./configure"
