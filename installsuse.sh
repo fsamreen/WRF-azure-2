@@ -69,17 +69,10 @@ cd netcdf-4.1.3
 ./configure --prefix=$DIR/netcdf --disable-dap --disable-netcdf-4 --disable-shared
 make
 make install
-cd ..
 cd ~/WRF-azure
 echo "Calling script5....."
 echo " Setting environmet variable for netcdf......."
 cd ~/Build_WRF/LIBRARIES
-#echo 'export PATH=$DIR/netcdf/bin:$PATH' >>~/.profile
-#echo 'export NETCDF=$DIR/netcdf' >>~/.profile
-#source ~/.profile
-#export PATH=$DIR/netcdf/bin:$PATH
-#export NETCDF=$DIR/netcdf
-cd ..
 cd ~/WRF-azure
 echo "Calling script7....."
 echo "Configuring mpich........"
@@ -89,28 +82,6 @@ cd mpich-3.0.4
 ./configure --prefix=$DIR/mpich
 make
 make install
-cd ~/WRF-azure
-echo "Calling script8....."
-echo " Setting up environment variable for mpich......"
-cd ~/Build_WRF/LIBRARIES
-#echo 'export PATH=$DIR/mpich/bin:$PATH' >>~/.profile
-#source ~/.profile
-#export PATH=$DIR/mpich/bin:$PATH
-cd ~/WRF-azure
-echo "Calling script9....."
-echo " Setting up environment variables for Zlib and WPS ..grib2......"
-cd ~/Build_WRF/LIBRARIES
-#echo 'export LDFLAGS=-L$DIR/grib2/lib' >>~/.profile
-#echo 'export CPPFLAGS=-I$DIR/grib2/include' >>~/.profile
-#echo 'export JASPERLIB=$DIR/grib2/lib' >>~/.profile
-#echo 'export JASPERINC=$DIR/grib2/include' >>~/.profile
-#source ~/.profile
-#setenv JASPERLIB $DIR/grib2/lib
-#setenv JASPERINC $DIR/grib2/include
-#export LDFLAGS=-L$DIR/grib2/lib 
-#export CPPFLAGS=-I$DIR/grib2/include 
-cd ~/WRF-azure
-echo "Calling script10....."
 cd ~/Build_WRF/LIBRARIES
 tar xzvf zlib-1.2.7.tar.gz     #or just .tar if no .gz present
 cd zlib-1.2.7
@@ -118,28 +89,18 @@ cd zlib-1.2.7
 make
 make install
 cd ..
-cd ~/WRF-azure
-echo "Calling script11....."
 cd ~/Build_WRF/LIBRARIES
 tar xzvf libpng-1.2.50.tar.gz     #or just .tar if no .gz present
 cd libpng-1.2.50
 ./configure --prefix=$DIR/grib2
 make
 make install
-cd ..
-cd ~/WRF-azure
-echo "Calling script12....."
-echo " Configure jasper....."
 cd ~/Build_WRF/LIBRARIES
 tar xzvf jasper-1.900.1.tar.gz     #or just .tar if no .gz present
 cd jasper-1.900.1
 ./configure --prefix=$DIR/grib2
 make
 make install
-cd ..
-cd ~/WRF-azure
-echo "Calling script13....."
-echo " Testing for configured libraries........"
 cd ~/TESTS
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/Fortran_C_NETCDF_MPI_tests.tar
 tar -xf Fortran_C_NETCDF_MPI_tests.tar
@@ -161,16 +122,12 @@ mpif90 -c 02_fortran+c+netcdf+mpi_f.f
 mpicc -c 02_fortran+c+netcdf+mpi_c.c
 mpif90 02_fortran+c+netcdf+mpi_f.o 02_fortran+c+netcdf+mpi_c.o -L${NETCDF}/lib -lnetcdff -lnetcdf
 mpirun ./a.out | tee -a ~/wrflog.txt
-#C function called by Fortran
+##C function called by Fortran
 #Values are xx = 2.00 and ii = 1
 #status = 2
 #SUCCESS test 2 fortran + c + netcdf + mpi
 #read -p " Do you want to install WRF, press y for yes: " n1
 #if (n1==y
-cd ~/WRF-azure
-echo "Calling script14....."
-sudo apt-get install perl
-sudo apt-get install m4
 cd ~/Build_WRF
 wget http://www2.mmm.ucar.edu/wrf/src/WRFV3.9.1.1.TAR.gz .
 gunzip WRFV3.9.1.1.TAR.gz
@@ -180,8 +137,6 @@ cd ~/Build_WRF
 wget http://www2.mmm.ucar.edu/wrf/src/WPSV3.9.TAR.gz .
 gunzip WPSV3.9.TAR.gz
 tar -xvf WPSV3.9.TAR
-#cd WPS
-#./configure
 cd ~/Build_WRF
 cd WRFV3
 #./configure
