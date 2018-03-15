@@ -43,7 +43,7 @@ sudo apt-get install g++ -y
 for node in $(sinfo -o "%n" -h|grep -v `hostname`)
 do
 
-  ssh azureuser@$node sudo apt-get -y install gfortran gcc g++
+  ssh wrfser@$node sudo apt-get -y install gfortran gcc g++
   #ssh azureuser@$node sudo apt-get -y install imagemagick
   #ssh azureuser@$node pip install azure==0.11.1 azure-storage==0.20.0
 
