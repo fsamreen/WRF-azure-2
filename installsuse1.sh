@@ -1,6 +1,6 @@
 #!/bin/bash
-mkdir LIBRARIES
-cd LIBRARIES
+#mkdir LIBRARIES
+cd ~/Build_WRF/LIBRARIES
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mpich/mpich_3.2.orig.tar.gz
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/netcdf-4.1.3.tar.gz
