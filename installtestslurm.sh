@@ -50,6 +50,6 @@ do
   #scp slurmdemo.py azureuser@$node:~
   #scp slurmdemo.sh azureuser@$node:~
 
-  ssh azureuser@$node wget 'https://raw.githubusercontent.com/Wintellect/blobxfer/master/blobxfer-0.9.9.10.py'
+  #ssh azureuser@$node wget 'https://raw.githubusercontent.com/Wintellect/blobxfer/master/blobxfer-0.9.9.10.py'
 
 done
