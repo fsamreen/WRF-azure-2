@@ -23,6 +23,3 @@ export FC=gfortran
 export FCFLAGS=-m64
 export F77=gfortran
 export FFLAGS=-m64
-#cd ~/WRF-azure
-#echo "Calling script5....."
-#sh ./install5.sh
