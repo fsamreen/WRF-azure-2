@@ -4,6 +4,8 @@ sudo apt-get update
 sudo apt-get install gfortran -y
 sudo apt-get install gcc -y
 sudo apt-get install g++ -y
+sudo apt-get install perl
+sudo apt-get install m4
 which fortran
 which gcc
 which cpp
@@ -106,8 +108,8 @@ cd ~/Build_WRF/LIBRARIES
 #source ~/.profile
 #setenv JASPERLIB $DIR/grib2/lib
 #setenv JASPERINC $DIR/grib2/include
-#export LDFLAGS=-L$DIR/grib2/lib 
-#export CPPFLAGS=-I$DIR/grib2/include 
+#export LDFLAGS=-L$DIR/grib2/lib
+#export CPPFLAGS=-I$DIR/grib2/include
 cd ~/WRF-azure
 echo "Calling script10....."
 cd ~/Build_WRF/LIBRARIES
@@ -168,8 +170,6 @@ mpirun ./a.out | tee -a ~/wrflog.txt
 #if (n1==y
 cd ~/WRF-azure
 echo "Calling script14....."
-sudo apt-get install perl
-sudo apt-get install m4
 cd ~/Build_WRF
 wget http://www2.mmm.ucar.edu/wrf/src/WRFV3.9.1.1.TAR.gz .
 gunzip WRFV3.9.1.1.TAR.gz

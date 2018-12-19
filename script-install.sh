@@ -1,11 +1,14 @@
 #!/bin/bash
 echo "Installing gcc, gfortran and g++......"
-sudo zypper update -y
-sudo zypper install gcc-fortran 
-sudo zypper install gcc 
-sudo zypper install gcc-c++ 
-sudo zypper install make 
-sudo zypper install m4
+sudo apt-get update
+sudo apt-get install gfortran -y
+sudo apt-get install gcc -y
+sudo apt-get install g++ -y
+sudo apt-get install m4
+sudo apt-get install csh -y
+sudo apt-get install perl -y
+sudo apt-get install tcsh -y
+sudo apt-get install make -y
 which fortran
 which gcc
 which cpp
@@ -14,9 +17,7 @@ gfortran --version
 cd ..
 mkdir Build_WRF
 mkdir TESTS
-cd ~/WRF-azure
-echo "Calling script2......"
-echo "Testing gfortran, gcc and g++."
+echo "Testing gfortran, gcc and g++............"
 cd ~/TESTS
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/Fortran_C_tests.tar
 tar -xf Fortran_C_tests.tar
@@ -37,11 +38,6 @@ gcc -c -m64 TEST_4_fortran+c_c.c
 gfortran -c -m64 TEST_4_fortran+c_f.f90
 gfortran -m64 TEST_4_fortran+c_f.o TEST_4_fortran+c_c.o
 ./a.out
-cd ~/WRF-azure
-echo "Calling script3....."
-echo "Testing csh and perl and starting to download mpich, netcdf, jasper, libpng and zlib....."
-sudo apt-get install csh -y
-sudo apt-get install perl -y
 cd ~/TESTS
 #Test #5:csh In the command line, type:
 ./TEST_csh.csh
@@ -54,53 +50,50 @@ cd ~/TESTS
 #The result should be: SUCCESS sh test
 cd ~/Build_WRF
 mkdir LIBRARIES
-cd LIBRARIES
+echo "Downloading required libraries............"
+cd ~/Build_WRF/LIBRARIES
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mpich/mpich_3.2.orig.tar.gz
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/netcdf-4.1.3.tar.gz
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/jasper-1.900.1.tar.gz
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/libpng-1.2.50.tar.gz
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/zlib-1.2.7.tar.gz
-#sudo apt-get install tcsh -y
-cd ~/WRF-azure
+echo "Configuring NetCDF............"
 cd ~/Build_WRF/LIBRARIES
 tar xzvf netcdf-4.1.3.tar.gz     #or just .tar if no .gz present
 cd netcdf-4.1.3
 ./configure --prefix=$DIR/netcdf --disable-dap --disable-netcdf-4 --disable-shared
 make
 make install
-cd ~/WRF-azure
-echo "Calling script5....."
-echo " Setting environmet variable for netcdf......."
-cd ~/Build_WRF/LIBRARIES
-cd ~/WRF-azure
-echo "Calling script7....."
-echo "Configuring mpich........"
+echo "Configuring mpich............"
 cd ~/Build_WRF/LIBRARIES
 tar xzvf mpich-3.0.4.tar.gz
 cd mpich-3.0.4
 ./configure --prefix=$DIR/mpich
 make
 make install
+echo "Configuring zlib............"
 cd ~/Build_WRF/LIBRARIES
 tar xzvf zlib-1.2.7.tar.gz     #or just .tar if no .gz present
 cd zlib-1.2.7
 ./configure --prefix=$DIR/grib2
 make
 make install
-cd ..
+echo "Configuring libpng............"
 cd ~/Build_WRF/LIBRARIES
 tar xzvf libpng-1.2.50.tar.gz     #or just .tar if no .gz present
 cd libpng-1.2.50
 ./configure --prefix=$DIR/grib2
 make
 make install
+echo "Configuring jasper............"
 cd ~/Build_WRF/LIBRARIES
 tar xzvf jasper-1.900.1.tar.gz     #or just .tar if no .gz present
 cd jasper-1.900.1
 ./configure --prefix=$DIR/grib2
 make
 make install
+echo " Testing for configured libraries........"
 cd ~/TESTS
 wget http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/Fortran_C_NETCDF_MPI_tests.tar
 tar -xf Fortran_C_NETCDF_MPI_tests.tar
@@ -122,22 +115,10 @@ mpif90 -c 02_fortran+c+netcdf+mpi_f.f
 mpicc -c 02_fortran+c+netcdf+mpi_c.c
 mpif90 02_fortran+c+netcdf+mpi_f.o 02_fortran+c+netcdf+mpi_c.o -L${NETCDF}/lib -lnetcdff -lnetcdf
 mpirun ./a.out | tee -a ~/wrflog.txt
-##C function called by Fortran
+#C function called by Fortran
 #Values are xx = 2.00 and ii = 1
 #status = 2
 #SUCCESS test 2 fortran + c + netcdf + mpi
 #read -p " Do you want to install WRF, press y for yes: " n1
 #if (n1==y
-cd ~/Build_WRF
-wget http://www2.mmm.ucar.edu/wrf/src/WRFV3.9.1.1.TAR.gz .
-gunzip WRFV3.9.1.1.TAR.gz
-tar -xf WRFV3.9.1.1.TAR
-echo " Download WPS......"
-cd ~/Build_WRF
-wget http://www2.mmm.ucar.edu/wrf/src/WPSV3.9.TAR.gz .
-gunzip WPSV3.9.TAR.gz
-tar -xvf WPSV3.9.TAR
-cd ~/Build_WRF
-cd WRFV3
-#./configure
-echo " WRF is installed ........ Configure it using following command $cd ~/Build_WRF $ ./configure"
+echo "end of script..........."
