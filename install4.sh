@@ -16,13 +16,13 @@ echo 'export CPPFLAGS=-I$DIR/grib2/include' >>~/.profile
 echo 'export JASPERLIB=$DIR/grib2/lib' >>~/.profile
 echo 'export JASPERINC=$DIR/grib2/include' >>~/.profile
 #source ~/.profile
-#export DIR=~/Build_WRF/LIBRARIES
-#export CC=gcc
-#export CXX=g++
-#export FC=gfortran
-#export FCFLAGS=-m64
-#export F77=gfortran
-#export FFLAGS=-m64
+export DIR=~/Build_WRF/LIBRARIES
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+export FCFLAGS=-m64
+export F77=gfortran
+export FFLAGS=-m64
 #cd ~/WRF-azure
 #echo "Calling script5....."
 #sh ./install5.sh
